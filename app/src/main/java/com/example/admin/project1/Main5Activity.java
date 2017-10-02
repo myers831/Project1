@@ -1,9 +1,6 @@
 package com.example.admin.project1;
 
 import android.content.Intent;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.NavUtils;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,25 +9,27 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class Main5Activity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private DrawerLayout dlLayout;
     private ListView lvList;
     String[] planets;
     private ActionBarDrawerToggle drawerListener;
     private Toolbar myToolbar;
+    private WebView wvView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main5);
 
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         dlLayout = (DrawerLayout) findViewById(R.id.dlDrawer);
@@ -40,10 +39,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        String title = getIntent().getExtras().getString("title");
+
+        getSupportActionBar().setTitle(title);
+
         planets = getResources().getStringArray(R.array.planets);
         lvList.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, planets));
 
         lvList.setOnItemClickListener(this);
+
+        wvView = (WebView) findViewById(R.id.wvWeb);
+
+        WebSettings webSettings = wvView.getSettings();
+        WebViewClient client = new WebViewClient();
+        webSettings.setJavaScriptEnabled(true);
+        wvView.setWebViewClient(client);
+
+        wvView.loadUrl("http://mekonah.com/");
+
     }
 
     @Override
@@ -72,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 intent2.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
                 startActivity(intent2);
                 break;
+
             case 3:
                 Intent intent3 = new Intent(this, Main5Activity.class);
                 intent3.putExtra("title",planets[position]);
@@ -90,12 +104,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 return true;
 
             case R.id.action_settings:
-             // User chose the "Settings" item, show the app settings UI...
+                // User chose the "Settings" item, show the app settings UI...
                 return true;
 
             case R.id.action_favorite:
-            // User chose the "Favorite" action, mark the current item
-            // as a favorite...
+                // User chose the "Favorite" action, mark the current item
+                // as a favorite...
                 return true;
 
             default:

@@ -79,6 +79,12 @@ public class Main2Activity extends AppCompatActivity implements AdapterView.OnIt
                 intent2.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
                 startActivity(intent2);
                 break;
+            case 3:
+                Intent intent3 = new Intent(this, Main5Activity.class);
+                intent3.putExtra("title",planets[position]);
+                intent3.addFlags(Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT);
+                startActivity(intent3);
+                break;
         }
     }
 

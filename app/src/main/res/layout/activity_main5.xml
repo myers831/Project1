@@ -9,48 +9,37 @@
     tools:context="com.example.admin.project1.MainActivity"
     >
     <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar3"
+        android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"></android.support.v7.widget.Toolbar>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <android.support.v4.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context="com.example.admin.project1.MainActivity"
-        android:id="@+id/dlDrawer3">
+        android:id="@+id/dlDrawer">
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/flFrame3"
+            android:id="@+id/flFrame"
             >
 
-            <Button
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:text="Capture Image"
-                android:id="@+id/btnCapture"
-                android:layout_gravity="center_horizontal"
-                android:onClick="capture"
-                />
-
-            <ImageView
-                android:layout_width="300dp"
-                android:layout_height="400dp"
-                android:id="@+id/ivCapture"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="80dp"/>
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/wvWeb"/>
 
         </FrameLayout>
 
         <ListView
             android:background="#0081c8"
             android:divider="@null"
-            android:id="@+id/lvList3"
+            android:id="@+id/lvList"
             android:layout_width="250dp"
             android:layout_height="match_parent"
             android:layout_gravity="left"
@@ -60,3 +49,4 @@
 
     </android.support.v4.widget.DrawerLayout>
 </LinearLayout>
+

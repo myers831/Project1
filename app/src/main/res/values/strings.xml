@@ -4,6 +4,7 @@
         <item>SeekBar</item>
         <item>CameraApp</item>
         <item>ThePlug</item>
+        <item>MekonahWebSite</item>
     </string-array>
 
     <string name="drawer_open">Open Navigation Drawer</string>
